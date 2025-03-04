@@ -12,9 +12,7 @@ const route = useRoute()
 const squirrel = ref('')
 
 async function getData() {
-  let result = await fetch(
-    `https://data.cityofnewyork.us/resource/vfnx-vebw.json/${route.params.id}`,
-  )
+  let result = await fetch(`https://data.cityofnewyork.us/resource/vfnx-vebw.json/`)
   let data = await result.json()
   squirrel.value = data
 }
