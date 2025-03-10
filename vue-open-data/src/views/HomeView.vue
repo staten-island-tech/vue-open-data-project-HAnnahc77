@@ -1,6 +1,10 @@
 <template>
   <main>
-    <SquirrelCard v-for="squirrel in squirrels" :key="squirrel.sq_id" :squirrel="squirrel" />
+    <SquirrelCard
+      v-for="squirrel in squirrels"
+      :key="squirrel.unique_squirrel_id"
+      :squirrel="squirrel"
+    />
   </main>
 </template>
 
@@ -15,7 +19,7 @@ async function getData() {
   try {
     let result = await fetch('https://data.cityofnewyork.us/resource/vfnx-vebw.json/')
     let data = await result.json()
-    squirrels.value = data
+    squirrels.value = data.results
   } catch (error) {
     console.error('Error fetching squirrel data:', error)
   }

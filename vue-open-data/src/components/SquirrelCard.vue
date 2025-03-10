@@ -1,15 +1,14 @@
 <template>
   <div class="squirrel-card">
-    <h3>{{ squirrel.name }}</h3>
-    <p>Location: {{ squirrel.location }}</p>
-    <p>Color: {{ squirrel.color }}</p>
-    <!-- Add other details you want to display -->
+    <h3>{{ squrriel.primary_fur_color }}</h3>
+    <p>Location: {{ squirrel.x }} , {{ squirrel.y }}</p>
+    <p>Color: {{ squirrel.unique_squirrel_id }}</p>
   </div>
 </template>
 
 <script setup>
 defineProps({
-  squirrel: Object, // Define the prop for squirrel data
+  squirrel: Object,
 })
 </script>
 
