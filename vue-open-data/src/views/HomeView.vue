@@ -10,23 +10,20 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import { useRoute } from 'vue-router'
 import SquirrelCard from '../components/SquirrelCard.vue'
 
-const squirrels = ref([])
-
-async function getData() {
-  try {
-    let result = await fetch('https://data.cityofnewyork.us/resource/vfnx-vebw.json/')
-    let data = await result.json()
-    squirrels.value = data.results
-  } catch (error) {
-    console.error('Error fetching squirrel data:', error)
-  }
+const squirrels = ref('')
+const url = 'https://data.cityofnewyork.us/resource/vfnx-vebw.json/'
+async function getData(url, squirrels) {
+  let result = await fetch(url)
+  let data = await result.json()
+  console.log(data)
+  squirrels.value = data
 }
 
 onMounted(() => {
-  getData()
+  getData(url, squirrels)
+  console.log('ailsdhfbikl')
 })
 </script>
 

@@ -1,8 +1,8 @@
 <template>
   <div class="squirrel-card">
-    <h3>{{ squrriel.primary_fur_color }}</h3>
-    <p>Location: {{ squirrel.x }} , {{ squirrel.y }}</p>
-    <p>Color: {{ squirrel.unique_squirrel_id }}</p>
+    <h2>ID: {{ squirrel.unique_squirrel_id }}</h2>
+    <h2>Color: {{ squirrel.primary_fur_color }}</h2>
+    <h2>Location: {{ squirrel.x }} , {{ squirrel.y }}</h2>
   </div>
 </template>
 
