@@ -6,11 +6,12 @@ import { RouterLink } from 'vue-router'
   <h1>2018 Central Park Squirrel Census</h1>
   <header>
     <nav>
-      <RouterLink to="/">Home</RouterLink>
-      <RouterLink to="/about">About</RouterLink>
+      <RouterLink to="/">Squirrel Data</RouterLink>
+      <RouterLink to="/about">Charts</RouterLink>
     </nav>
   </header>
   <RouterView />
 </template>
 
-<style scoped></style>
+<style scoped>
+</style>

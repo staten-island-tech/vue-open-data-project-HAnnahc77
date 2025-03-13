@@ -12,19 +12,20 @@
 import { ref, onMounted } from 'vue'
 import SquirrelCard from '../components/SquirrelCard.vue'
 
-const squirrels = ref('')
+const squirrels = ref([])
+
 const url = 'https://data.cityofnewyork.us/resource/vfnx-vebw.json/'
-async function getData(url, squirrels) {
-  let result = await fetch(url)
-  let data = await result.json()
-  console.log(data)
+
+async function getData(url) {
+  const result = await fetch(url)
+  const data = await result.json()
   squirrels.value = data
 }
 
 onMounted(() => {
-  getData(url, squirrels)
-  console.log('ailsdhfbikl')
+  getData(url)
 })
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped>
+</style>
