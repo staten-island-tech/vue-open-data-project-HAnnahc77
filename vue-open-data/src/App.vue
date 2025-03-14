@@ -8,6 +8,7 @@ import { RouterLink } from 'vue-router'
     <nav>
       <RouterLink to="/">Squirrel Data</RouterLink>
       <RouterLink to="/about">Charts</RouterLink>
+      <RouterLink to="/charttwo">Chart 2</RouterLink>
     </nav>
   </header>
   <RouterView />
