@@ -9,7 +9,7 @@ import { RouterLink } from 'vue-router'
       <nav>
         <RouterLink to="/">Squirrel Data</RouterLink>
         <RouterLink to="/chartOne">Primary Fur Color Chart</RouterLink>
-        <RouterLink to="/chartTwo">Chart 2</RouterLink>
+        <RouterLink to="/chartTwo">Squrriel Habits Chart</RouterLink>
       </nav>
     </div>
   </header>
