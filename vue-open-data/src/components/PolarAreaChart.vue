@@ -4,17 +4,9 @@
 
 <script>
 import { PolarArea } from 'vue-chartjs'
-import {
-  Chart as ChartJS,
-  Title,
-  Tooltip,
-  Legend,
-  PolarAreaElement,
-  CategoryScale,
-  LinearScale,
-} from 'chart.js'
+import { Chart as ChartJS, Title, Tooltip, Legend, ArcElement, RadialLinearScale } from 'chart.js'
 
-ChartJS.register(Title, Tooltip, Legend, PolarAreaElement, CategoryScale, LinearScale)
+ChartJS.register(Title, Tooltip, Legend, ArcElement, RadialLinearScale)
 
 export default {
   name: 'PolarAreaChart',
@@ -32,4 +24,10 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+/* Optionally, style the chart container */
+#my-polar-area-chart {
+  width: 100%;
+  height: 400px;
+}
+</style>

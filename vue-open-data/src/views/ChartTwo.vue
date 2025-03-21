@@ -16,10 +16,10 @@ import { ref, onMounted } from 'vue'
 import PolarAreaChart from '../components/PolarAreaChart.vue'
 
 const chartData = ref({
-  labels: [], // Labels will be the activity types
+  labels: [], // Will be filled with activity types (e.g., running, chasing)
   datasets: [
     {
-      data: [], // This will hold the count of each activity
+      data: [], // Will be filled with the count of each activity
       backgroundColor: [
         '#FF5733',
         '#33FF57',
@@ -28,6 +28,9 @@ const chartData = ref({
         '#FFBD33',
         '#33FFF0',
         '#FF5733',
+        '#FF99FF',
+        '#FF9933',
+        '#FF33FF',
       ], // Colors for each segment
     },
   ],
@@ -36,19 +39,19 @@ const chartData = ref({
 const chartOptions = ref({
   responsive: true,
   maintainAspectRatio: false,
-  plugins: {
-    legend: {
-      position: 'top',
-    },
-  },
 })
 
 const url = 'https://data.cityofnewyork.us/resource/vfnx-vebw.json/'
 
 async function getData(url) {
-  const result = await fetch(url)
-  const data = await result.json()
-  processSquirrelData(data)
+  try {
+    const result = await fetch(url)
+    const data = await result.json()
+    console.log(data) // Log the raw data to check the structure
+    processSquirrelData(data)
+  } catch (error) {
+    console.error('Error fetching data:', error)
+  }
 }
 
 function processSquirrelData(data) {
@@ -71,7 +74,7 @@ function processSquirrelData(data) {
 
   // Loop through the data to count each activity
   data.forEach((squirrel) => {
-    // Check each activity and count if it's true
+    // For each activity, increment the count if it's marked true
     for (const activity in activityCounts) {
       if (squirrel[activity] === true) {
         activityCounts[activity] += 1
@@ -79,7 +82,10 @@ function processSquirrelData(data) {
     }
   })
 
-  // Prepare the chart data
+  // Log activity counts for debugging
+  console.log('Activity Counts:', activityCounts)
+
+  // Prepare chart data
   chartData.value.labels = Object.keys(activityCounts)
   chartData.value.datasets[0].data = Object.values(activityCounts)
 }
