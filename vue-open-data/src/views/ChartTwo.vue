@@ -16,22 +16,22 @@ import { ref, onMounted } from 'vue'
 import PolarAreaChart from '../components/PolarAreaChart.vue'
 
 const chartData = ref({
-  labels: [], // Will be filled with activity types (e.g., running, chasing)
+  labels: [],
   datasets: [
     {
-      data: [], // Will be filled with the count of each activity
+      data: [],
       backgroundColor: [
-        '#FF5733',
-        '#33FF57',
-        '#3357FF',
-        '#FF33A8',
-        '#FFBD33',
-        '#33FFF0',
-        '#FF5733',
-        '#FF99FF',
-        '#FF9933',
-        '#FF33FF',
-      ], // Colors for each segment
+        '#4E9F3D',
+        '#6C8EBF',
+        '#F9A825',
+        '#F44336',
+        '#FF9800',
+        '#9C27B0',
+        '#00BCD4',
+        '#8BC34A',
+        '#FF5722',
+        '#795548',
+      ],
     },
   ],
 })
@@ -47,7 +47,6 @@ async function getData(url) {
   try {
     const result = await fetch(url)
     const data = await result.json()
-    console.log(data) // Log the raw data to check the structure
     processSquirrelData(data)
   } catch (error) {
     console.error('Error fetching data:', error)
@@ -55,7 +54,6 @@ async function getData(url) {
 }
 
 function processSquirrelData(data) {
-  // Initialize activity counts
   const activityCounts = {
     running: 0,
     chasing: 0,
@@ -72,9 +70,7 @@ function processSquirrelData(data) {
     runs_from: 0,
   }
 
-  // Loop through the data to count each activity
   data.forEach((squirrel) => {
-    // For each activity, increment the count if it's marked true
     for (const activity in activityCounts) {
       if (squirrel[activity] === true) {
         activityCounts[activity] += 1
@@ -82,10 +78,8 @@ function processSquirrelData(data) {
     }
   })
 
-  // Log activity counts for debugging
   console.log('Activity Counts:', activityCounts)
 
-  // Prepare chart data
   chartData.value.labels = Object.keys(activityCounts)
   chartData.value.datasets[0].data = Object.values(activityCounts)
 }

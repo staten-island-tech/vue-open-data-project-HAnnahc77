@@ -25,7 +25,6 @@ export default {
 </script>
 
 <style scoped>
-/* Optionally, style the chart container */
 #my-polar-area-chart {
   width: 100%;
   height: 400px;

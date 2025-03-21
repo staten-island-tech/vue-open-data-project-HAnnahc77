@@ -1,11 +1,13 @@
 <template>
-  <main>
-    <SquirrelCard
-      v-for="squirrel in squirrels"
-      :key="squirrel.unique_squirrel_id"
-      :squirrel="squirrel"
-    />
-  </main>
+  <div class="container">
+    <main>
+      <SquirrelCard
+        v-for="squirrel in squirrels"
+        :key="squirrel.unique_squirrel_id"
+        :squirrel="squirrel"
+      />
+    </main>
+  </div>
 </template>
 
 <script setup>
@@ -28,4 +30,18 @@ onMounted(() => {
 </script>
 
 <style scoped>
+.container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 20px;
+  padding: 20px;
+  width: 100%;
+}
 </style>
