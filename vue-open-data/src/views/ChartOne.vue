@@ -1,6 +1,6 @@
 <template>
   <main>
-    <h2>Primary Fur Color</h2>
+    <h2>Squrriel Fur Color Distribution</h2>
     <div class="pie-chart-container">
       <PieChart
         v-if="chartData.labels.length > 0"
@@ -63,6 +63,9 @@ onMounted(() => {
 </script>
 
 <style scoped>
+main {
+height: 100vh;
+}
 .pie-chart-container {
   width: 400px;
   height: 400px;

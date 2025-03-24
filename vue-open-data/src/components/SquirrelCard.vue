@@ -14,7 +14,7 @@ defineProps({
 
 <style scoped>
 .squirrel-card {
-  border: 1px solid #ddd;
+  border: 1px solid #000000;
   padding: 10px;
   margin: 10px;
   border-radius: 5px;

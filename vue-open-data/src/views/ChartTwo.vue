@@ -1,13 +1,14 @@
 <template>
   <main>
-    <h2>Squirrel Habits Chart</h2>
+    <div class="container">
+    <h2>Squrriel Activity Analysis</h2>
     <div class="polar-area-chart-container">
       <PolarAreaChart
         v-if="chartData.labels.length > 0"
         :chartData="chartData"
         :chartOptions="chartOptions"
       />
-    </div>
+    </div></div>
   </main>
 </template>
 
@@ -90,6 +91,10 @@ onMounted(() => {
 </script>
 
 <style scoped>
+
+main {
+  height: 100vh;
+}
 .polar-area-chart-container {
   width: 400px;
   height: 400px;
